@@ -725,6 +725,7 @@ elif menu == "Modelagem":
             ax.legend(title="Nível de aceleração", loc='best')
             ax.grid(True)
             st.pyplot(fig)
+
         if 'dadostratados' in st.session_state and 'resumo' in st.session_state:
             dadostratados = st.session_state['dadostratados']
             resumo = st.session_state['resumo']
@@ -751,5 +752,4 @@ elif menu == "Modelagem":
             plot_residuos_deviance(dados_residual)
 # ------------------ Previsão ------------------------------------------------------
             st.subheader("Previsão")
-
             plot_previsao(dadosprev)
