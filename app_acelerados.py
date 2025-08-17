@@ -1,4 +1,16 @@
 import streamlit as st
+import sys, importlib
+
+st.write("### Versiones de librerías instaladas")
+for lib in ["streamlit", "pandas", "seaborn", "matplotlib", "numpy",
+            "lifelines", "scipy", "statsmodels", "sklearn"]:
+    try:
+        module = importlib.import_module(lib if lib != "sklearn" else "sklearn")
+        st.write(f"{lib}: {module.__version__}")
+    except Exception as e:
+        st.write(f"{lib}: ERROR -> {e}")
+
+import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -753,3 +765,4 @@ elif menu == "Modelagem":
 # ------------------ Previsão ------------------------------------------------------
             st.subheader("Previsão")
             plot_previsao(dadosprev)
+
